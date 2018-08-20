@@ -8,9 +8,29 @@ import Foundation
 class Concentration {
 
     //TODO: shuffle the cards
-    var cards = Array<Card>();
+    private(set) var cards = Array<Card>();
 
-    var indexOfOneAndOnlyFaceUpCard: Int?
+    var indexOfOneAndOnlyFaceUpCard: Int? {
+        get {
+            var foundIndex: Int?
+            for index in cards.indices {
+                if cards[index].isFaceUp {
+                    if foundIndex == nil {
+                        foundIndex = index;
+                    }
+                    else {
+                        return nil; //set face up cards
+                    }
+                }
+            }
+            return foundIndex;
+        }
+        set(newValue) {
+            for index in cards.indices {
+                cards[index].isFaceUp = (index == newValue) //new Value returned from foundIndex
+            }
+        }
+    }
 
     init(numberOfPairsOfCards: Int){
         for _ in 1...numberOfPairsOfCards {
@@ -20,6 +40,8 @@ class Concentration {
     }
 
     func chooseCard(at index: Int){
+        assert(cards.indices.contains(index), "Concentration.chooseCard: \(index): index out of bounds");
+        
         if !cards[index].isMatched {
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 //check if cards matched
@@ -28,13 +50,9 @@ class Concentration {
                     cards[index].isMatched = true
                 }
                 cards[index].isFaceUp = true;
-                indexOfOneAndOnlyFaceUpCard = nil;
+                
             }
             else {
-                for flipDownIndex in cards.indices {
-                    cards[flipDownIndex].isFaceUp = false;
-                }
-                cards[index].isFaceUp = true;
                 indexOfOneAndOnlyFaceUpCard = index;
             }
         }

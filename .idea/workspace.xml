@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="093b2074-8b06-4471-8a3c-4a8f60a6459b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Concentration.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Concentration.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Concentration/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/Concentration/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Concentration/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Concentration/ViewController.swift" afterDir="false" />
-    </list>
+    <list default="true" id="093b2074-8b06-4471-8a3c-4a8f60a6459b" name="Default" comment="" />
     <ignored path="$USER_HOME$/Library/Developer/Xcode/DerivedData/Concentration-flxbvmgitllaimgaazvlmqhsbkri/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +25,8 @@
       <file leaf-file-name="Concentration.swift" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Concentration/Concentration.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="330">
+              <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -136,16 +131,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534619647161</updated>
-      <workItem from="1534619650204" duration="5594000" />
+      <workItem from="1534619650204" duration="5889000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5594000" />
+    <option name="totallyTimeSpent" value="5889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="646" y="27" width="820" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.2492971" />
@@ -190,8 +184,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Concentration/Concentration.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="330">
+          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
         </state>
       </provider>
     </entry>
