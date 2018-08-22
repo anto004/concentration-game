@@ -5,13 +5,31 @@
 
 import UIKit
 
-class ConcentrationThemeControllerViewController: UIViewController {
+class ConcentrationThemeControllerViewController: UIViewController , UISplitViewControllerDelegate{
     
     let themes = [
         "Sports": "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓⛷🎳⛳️",
         "Animals": "🐶🦆🐹🐸🐘🦍🐓🐩🐦🦋🐙🐏",
         "Faces": "😀😌😎🤓😠😤😭😰😱😳😜😇"
     ]
+    
+    override func awakeFromNib() {
+        splitViewController?.delegate = self
+    }
+    
+    func splitViewController(_ splitViewController: UISplitViewController,
+                             collapseSecondary secondaryViewController: UIViewController, //detail
+                             onto primaryViewController: UIViewController) -> Bool {      //master
+        //collapse detail onto master
+        //return value is inverse
+        //or ask yourself should master collapse onto detail?
+        if let cvc = secondaryViewController as? ConcentrationViewController {
+            if cvc.theme == nil {
+                return true;
+            }
+        }
+        return false;
+    }
     
     @IBAction func changeTheme(_ sender: Any) {
         //find a view controller
