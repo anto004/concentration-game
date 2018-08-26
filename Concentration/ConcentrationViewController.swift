@@ -96,7 +96,7 @@ extension Int {
             return Int(arc4random_uniform(UInt32(self))); // self is the Int passed to this function
         }
         else if self < 0 {
-            return Int(arc4random_uniform(UInt32(self)));
+            return -Int(arc4random_uniform(UInt32(self)));
         }
         else {
             return 0;
