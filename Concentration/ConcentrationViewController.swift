@@ -20,7 +20,7 @@ class ConcentrationViewController: UIViewController {
     
     @IBAction private func touchCard(_ sender: UIButton) {
         flipCount += 1;
-        if let cardNumber = cardButtons.index(of: sender) {
+        if let cardNumber = visibleCardButtons.index(of: sender) {
             game.chooseCard(at: cardNumber);
             updateViewFromModel();
         }
@@ -31,10 +31,17 @@ class ConcentrationViewController: UIViewController {
             .strokeWidth: 5.0,
             .strokeColor: UIColor.black,
             ]
-        let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes);
+        let attributedString = NSAttributedString(
+            string: traitCollection.verticalSizeClass == .compact ? "Flips:\n \(flipCount)"
+                :"Flips: \(flipCount)", attributes: attributes);
         flipCountLabel.attributedText = attributedString;
     }
     
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection);
+        updateFlipCountLabel();
+    }
     private func flipCard(withEmoji emoji: String, on button: UIButton){
         if button.currentTitle == emoji {
             button.setTitle("", for: UIControlState.normal);
@@ -47,9 +54,9 @@ class ConcentrationViewController: UIViewController {
     }
 
     private func updateViewFromModel() {
-        if cardButtons != nil {
-            for index in cardButtons.indices {
-                let button = cardButtons[index];
+        if visibleCardButtons != nil {
+            for index in visibleCardButtons.indices {
+                let button = visibleCardButtons[index];
                 let card = game.cards[index];
                 if card.isFaceUp {
                     button.setTitle(emoji(for: card), for: UIControlState.normal);
@@ -64,6 +71,14 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
+    private var visibleCardButtons: [UIButton]! {
+        return cardButtons?.filter({ !$0.superview!.isHidden})
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews();
+        updateViewFromModel();
+    }
    
     private var emojiChoices = "🦇😱🙀😈🎃👻🍭🍬🍎";
     
@@ -89,6 +104,8 @@ class ConcentrationViewController: UIViewController {
     }
     
 }
+
+
 
 extension Int {
     var arc4Random: Int {
